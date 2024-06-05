@@ -121,7 +121,7 @@ def dynamic(request: Request, file: UploadFile = File(), local_debugging = args.
     )
 
     if is_image == 1:
-        response = fct.predict_image(
+        response, height, width = fct.predict_image(
             source_content_filepath, 
             model,
             label_to_class
@@ -136,6 +136,7 @@ def dynamic(request: Request, file: UploadFile = File(), local_debugging = args.
             "request": request, 
             "output": response, 
             "is_image": is_image,
+            "image": {"height_half": int(height/2), "width_half": int(width/2)},
             "content_filepath": result_content_filepath,
             "chart_filepath": chart_html_file,
             "debugging_local": local_debugging

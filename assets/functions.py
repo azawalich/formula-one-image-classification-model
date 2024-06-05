@@ -15,6 +15,7 @@ def initialize_model(path, input_path):
 
 def predict_image(filepath, model, labels):
     image_np = cv2.imread(filepath)
+    height, width, *_ = image_np.shape
     # image_np = np.frombuffer(file, np.uint8)
     # img = cv2.imdecode(image_np, cv2.IMREAD_COLOR)  
     img_rgb = cv2.cvtColor(image_np, cv2.COLOR_BGR2RGB)
@@ -45,7 +46,7 @@ def predict_image(filepath, model, labels):
         if i == 0:
             response['prediction'] = temp_dict
         response['predictions'][i+1] = temp_dict
-    return response
+    return response, height, width
 
 def make_chart(prediction_data):
   chart_filepath = './static/temp_file_plotly_graph.html'
@@ -54,7 +55,11 @@ def make_chart(prediction_data):
   range_chart = list(range(0, 360, 360 // teams_number))
   class_majority = prediction_data['prediction']['class']
   prediction_majority = prediction_data['prediction']['confidence_percent']
-  team_majority = list(filter(lambda x: teams_classes[x] == class_majority, teams_classes))[0]
+  filtered_list = list(filter(lambda x: teams_classes[x] == class_majority, teams_classes))
+  if len(filtered_list) > 0:
+     team_majority = list(filter(lambda x: teams_classes[x] == class_majority, teams_classes))[0]
+  else:
+     team_majority = "N/A"
 
   f1_data = pd.DataFrame(colors_teams_chart.items(), columns=['team', 'color'])
   f1_data_temp = pd.DataFrame(teams_classes.items(), columns=['team', 'team_class'])

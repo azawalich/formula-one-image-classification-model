@@ -21,14 +21,14 @@
         <h1>Model <b>Results</b></h1>
         <iframe src="{{ url_for('static', path=chart_filepath) }}" title="classification-results-chart"></iframe>
         <br /><br />
-        <p>Disclaimer: Model is trained to recognize F1 cars <b>only from 2019 season</b>. It is <b>unable to generalize.</b><br /> It could <b>classify other images incorrectly</b> (e.g. from other seasons or from different contexts at all).</p>
+        <p>Disclaimer: Model is trained to recognize F1 cars <b>only from 2019 season</b>. It is <b>unable to generalize.</b><br /> It is not ideal and could <b>classify other images incorrectly</b> (e.g. from other seasons or from different contexts at all).</p>
         <br />
         <a href="/">Go back to the <b>homepage</b></a>
       </div>
       <div id="submission">
         <br /><br />
         <h1>Submitted <b>Image</b></h1>
-        <img src="{{ url_for('static', path=content_filepath) }}" width="800" height="600" />
+        <img width={{image.width_half}} height={{image.height_half}} src="{{ url_for('static', path=content_filepath) }}" />
         <br /><br />
       </div>
       {% endif %}
