@@ -102,6 +102,7 @@ munkres==1.1.4
 namex==0.0.7
 nbformat @ file:///home/conda/feedstock_root/build_artifacts/nbformat_1712238998817/work
 nest_asyncio @ file:///home/conda/feedstock_root/build_artifacts/nest-asyncio_1705850609492/work
+nltk==3.8.1
 numpy @ file:///home/conda/feedstock_root/build_artifacts/numpy_1707225359967/work/dist/numpy-1.26.4-cp312-cp312-linux_x86_64.whl#sha256=031b7d6b2e5e604d9e21fc21be713ebf28ce133ec872dce6de006742d5e49bab
 opencv-contrib-python==4.9.0.80
 opencv-python-headless==4.8.0.74
@@ -144,6 +145,7 @@ PyYAML @ file:///home/conda/feedstock_root/build_artifacts/pyyaml_1695373450623/
 pyzmq @ file:///home/conda/feedstock_root/build_artifacts/pyzmq_1701783162207/work
 querystring-parser==1.2.4
 referencing @ file:///home/conda/feedstock_root/build_artifacts/referencing_1710763696991/work
+regex==2024.4.16
 requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1684774241324/work
 requests-toolbelt==1.0.0
 rich @ file:///home/conda/feedstock_root/build_artifacts/rich-split_1709150387247/work/dist
